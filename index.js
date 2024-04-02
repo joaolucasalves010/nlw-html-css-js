@@ -123,6 +123,40 @@ const adicionarParticipante = (event) => {
     dataCheckIn: null  
   }
 
+  // verificar se o participante ja existe
+  const participanteExiste = participantes.find((p) => p.email == participante.email)
+  
+
+  if (participanteExiste) {
+    alert('Email ja cadastrado!')
+    return
+  }
+
   participantes = [participante, ...participantes]
+  atualizarLista(participantes)
+
+  // limpando form
+
+  const emailInput = document.querySelector('#email') // selecionando input do email
+  emailInput.value = ""
+  const nomeInput = document.querySelector('#nome') // selecionando input do nome
+  nomeInput.value = ""  
+}
+
+const fazerCheckIn = (event) => {
+  //confirmar se o participante deseja fazer o check-ne
+  const mensagemConfirmacao = 'Tem certeza que deseja fazer o check-in'
+
+  if(confirm(mensagemConfirmacao) == false) {
+    return
+  }
+
+  // encontrar participante dentro da lista
+  const participante = participantes.find((p) => {
+    return p.email == event.target.dataset.email
+  })
+  // atualizar o check-in do participante
+  participante.dataCheckIn = new Date()
+  // atualizar a lista de participantes
   atualizarLista(participantes)
 }
