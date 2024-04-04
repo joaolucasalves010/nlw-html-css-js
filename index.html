@@ -23,34 +23,45 @@
 </head>
 
 <body>
-
-  <form onsubmit="adicionarParticipante(event)">
-    <fieldset>
-      <legend>Inscrição</legend>
+  <div class="container">
+    <header>
+      <img src="./assets/icon.svg" alt="">       
+    </header>
+    <form onsubmit="adicionarParticipante(event)">
+      <fieldset>
+        <legend>Inscrição</legend>
+        <div>
+          <div class="input-wrapper">
+            <img src="./assets/person-icon.svg" alt="">
+            <input type="text" placeholder="Nome Completo" name="nome" id="nome" required>
+          </div>
+          <div class="input-wrapper">
+            <img src="./assets/at-sign.svg" alt="">
+            <input type="email" placeholder="Email" name="email" id="email" required>
+          </div>
+          <button>
+            REALIZAR INSCRIÇÃO
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <section class="lista-participantes">
+      <h2>Participantes</h2>
       <div>
-        <input type="text" placeholder="Nome Completo" name="nome" required>
-        <input type="email" placeholder="Email" name="email" required>
-        <button>
-          REALIZAR INSCRIÇÃO
-        </button>
+        <table width="100%">
+          <thead style="text-align: left">
+            <tr>
+              <th>Participante</th>
+              <th>Data da inscrição</th>
+              <th>Data do check-in</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
-    </fieldset>
-  </form>
-
-  <table width="100%">
-    <thead style="text-align: left">
-      <tr>
-        <th>Participante</th>
-        <th>Data da inscrição</th>
-        <th>Data do check-in</th>
-      </tr>
-    </thead>
-
-    <tbody>
-
-    </tbody>
-  </table>
-
+    </section>
+  </div>
   <script src="./index.js"></script>
 </body>
 
